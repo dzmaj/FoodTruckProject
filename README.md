@@ -6,11 +6,16 @@ The program uses two classes. One class for the food truck objects, and a second
 The main method of the FoodTruckApp class is the only static method, and mainly just creates an instance of FoodTruckApp and calls its methods.
 
 ### Topics
-Java OOP
+- Java OOP
 - objects
 - classes
 - visibility
-- Encapsulation
+- encapsulation
+- arrays
+- toStrings
+
+### Lessons Learned
+The main things I learned while doing this project were how to structure a program when using multiple classes, using public/private, and using static vs non static fields and methods. Aside from those topics, the most interesting individual problems were 1. dealing with ties in the highest rated trucks and 2. formatting the toString for the FoodTruck class so that all of the information would be aligned nicely.
 
 ### How to Run
 

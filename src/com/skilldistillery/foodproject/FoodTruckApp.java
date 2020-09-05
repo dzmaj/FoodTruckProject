@@ -20,43 +20,47 @@ public class FoodTruckApp {
 		sc.close();
 
 	}
-	
+
 	// Welcome message displayed once at beginning
 	private void welcomeMessage() {
-		System.out.println("----------------------");
-		System.out.println("--FOOD TRUCK PROGRAM--");
-		System.out.println("----------------------");
+		System.out.println("------------------------");
+		System.out.println("-- FOOD TRUCK PROGRAM --");
+		System.out.println("------------------------");
+		System.out.println("Enter information for up to " + maxFoodTrucks + " food trucks.");
 	}
-	
-	// Add food trucks using createFoodTruck until the user is done or reaches the maximum number (5)
+
+	// Add food trucks using createFoodTruck until the user is done or reaches the
+	// maximum number (5)
 	private void truckEntryLoop() {
 		for (int i = 0; i < maxFoodTrucks; i++) {
+			System.out.println("========= Truck #" + (i + 1) + " =========");
 			trucks[i] = createFoodTruck();
 			if (trucks[i] == null) {
 				break;
 			}
 		}
 	}
-	
+
 	// Method to prompt the user for input and create a food truck from it
 	// Entering "quit" as a name will return a null truck
 	private FoodTruck createFoodTruck() {
-		System.out.println("Enter the food truck's name: ");
+		System.out.println("Enter the food truck's name(\"quit\" to finish entering trucks): ");
 		String name = sc.nextLine();
-		if (name.contentEquals("quit")) {
+		if (name.toLowerCase().contentEquals("quit")) {
 			System.out.println("Done entering trucks...");
 			return null;
 		}
 		System.out.println("Enter the type of food: ");
 		String foodType = sc.nextLine();
-		System.out.println("Enter the rating (1 - 10): ");
+		System.out.println("Enter the rating(1 - 10): ");
 		int rating = sc.nextInt();
 		sc.nextLine();
 		FoodTruck truck = new FoodTruck(name, foodType, rating);
 		return truck;
 	}
 
-	// Loop that displays the menu, then perform the requested functions until the user decides
+	// Loop that displays the menu, then perform the requested functions until the
+	// user decides
 	// to exit
 	private void menuLoop() {
 		int choice = 0;
@@ -82,7 +86,6 @@ public class FoodTruckApp {
 		}
 	}
 
-
 	// Menu method displays the options and accepts/returns the choice
 	private int displayMenu() {
 		System.out.println("---------MENU---------");
@@ -94,7 +97,6 @@ public class FoodTruckApp {
 		sc.nextLine();
 		return choice;
 	}
-
 
 	// Print the information for each truck, skipping null trucks
 	private void displayFoodTrucks() {
@@ -120,7 +122,7 @@ public class FoodTruckApp {
 			avgRating += truck.getRating();
 		}
 		avgRating /= numToAvg;
-		System.out.println("The average food truck rating is " + avgRating);
+		System.out.printf("The average food truck rating is %.1f/10\n", avgRating);
 	}
 
 	// Display the highest rated truck(s)
